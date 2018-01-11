@@ -1,12 +1,12 @@
 <?php
 
-namespace Devpark\PayboxGateway\Requests;
+namespace Cahri\PayboxGateway\Requests;
 
 use Carbon\Carbon;
-use Devpark\PayboxGateway\HttpClient\GuzzleHttpClient;
-use Devpark\PayboxGateway\Responses\Capture as CaptureResponse;
-use Devpark\PayboxGateway\Services\Amount;
-use Devpark\PayboxGateway\Services\ServerSelector;
+use Cahri\PayboxGateway\HttpClient\GuzzleHttpClient;
+use Cahri\PayboxGateway\Responses\Capture as CaptureResponse;
+use Cahri\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\ServerSelector;
 use Exception;
 use Illuminate\Contracts\Config\Repository as Config;
 

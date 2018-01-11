@@ -2,12 +2,12 @@
 
 namespace Tests\Responses;
 
-use Devpark\PayboxGateway\ResponseCode;
-use Devpark\PayboxGateway\ResponseField;
-use Devpark\PayboxGateway\Responses\Exceptions\InvalidSignature;
-use Devpark\PayboxGateway\Responses\Verify;
-use Devpark\PayboxGateway\Services\Amount;
-use Devpark\PayboxGateway\Services\SignatureVerifier;
+use Cahri\PayboxGateway\ResponseCode;
+use Cahri\PayboxGateway\ResponseField;
+use Cahri\PayboxGateway\Responses\Exceptions\InvalidSignature;
+use Cahri\PayboxGateway\Responses\Verify;
+use Cahri\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\SignatureVerifier;
 use Illuminate\Http\Request;
 use Tests\UnitTestCase;
 use Mockery as m;

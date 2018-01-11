@@ -1,8 +1,8 @@
 <?php
 
-namespace Devpark\PayboxGateway\Responses;
+namespace Cahri\PayboxGateway\Responses;
 
-use Devpark\PayboxGateway\DirectResponseCode;
+use Cahri\PayboxGateway\DirectResponseCode;
 
 class Capture
 {

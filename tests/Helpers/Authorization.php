@@ -2,10 +2,10 @@
 
 namespace Tests\Helpers;
 
-use Devpark\PayboxGateway\Requests\AuthorizationWithCapture;
-use Devpark\PayboxGateway\Services\Amount;
-use Devpark\PayboxGateway\Services\HmacHashGenerator;
-use Devpark\PayboxGateway\Services\ServerSelector;
+use Cahri\PayboxGateway\Requests\AuthorizationWithCapture;
+use Cahri\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\HmacHashGenerator;
+use Cahri\PayboxGateway\Services\ServerSelector;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\Config\Repository as Config;

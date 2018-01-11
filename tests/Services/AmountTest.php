@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Devpark\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\Amount;
 use Tests\UnitTestCase;
 
 class AmountTest extends UnitTestCase

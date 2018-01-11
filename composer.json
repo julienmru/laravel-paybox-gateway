@@ -1,5 +1,5 @@
 {
-  "name": "devpark/laravel-paybox-gateway",
+  "name": "cahri/laravel-paybox-gateway",
   "description": "Laravel Paybox gateway",
   "require": {
     "laravel/framework": "5.*",
@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Devpark\\PayboxGateway\\": "src/"
+      "Cahri\\PayboxGateway\\": "src/"
     }
   },
   "autoload-dev": {

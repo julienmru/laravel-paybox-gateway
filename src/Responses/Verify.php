@@ -1,12 +1,12 @@
 <?php
 
-namespace Devpark\PayboxGateway\Responses;
+namespace Cahri\PayboxGateway\Responses;
 
-use Devpark\PayboxGateway\ResponseCode;
-use Devpark\PayboxGateway\ResponseField;
-use Devpark\PayboxGateway\Responses\Exceptions\InvalidSignature;
-use Devpark\PayboxGateway\Services\Amount;
-use Devpark\PayboxGateway\Services\SignatureVerifier;
+use Cahri\PayboxGateway\ResponseCode;
+use Cahri\PayboxGateway\ResponseField;
+use Cahri\PayboxGateway\Responses\Exceptions\InvalidSignature;
+use Cahri\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\SignatureVerifier;
 use Exception;
 use Illuminate\Http\Request;
 

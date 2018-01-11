@@ -3,12 +3,12 @@
 namespace Tests\Requests;
 
 use Carbon\Carbon;
-use Devpark\PayboxGateway\Currency;
-use Devpark\PayboxGateway\HttpClient\GuzzleHttpClient;
-use Devpark\PayboxGateway\Requests\Capture;
-use Devpark\PayboxGateway\Responses\Capture as CaptureResponse;
-use Devpark\PayboxGateway\Services\Amount;
-use Devpark\PayboxGateway\Services\ServerSelector;
+use Cahri\PayboxGateway\Currency;
+use Cahri\PayboxGateway\HttpClient\GuzzleHttpClient;
+use Cahri\PayboxGateway\Requests\Capture;
+use Cahri\PayboxGateway\Responses\Capture as CaptureResponse;
+use Cahri\PayboxGateway\Services\Amount;
+use Cahri\PayboxGateway\Services\ServerSelector;
 use Exception;
 use Tests\UnitTestCase;
 use Illuminate\Contracts\Config\Repository as Config;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Devpark\PayboxGateway\Providers;
+namespace Cahri\PayboxGateway\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

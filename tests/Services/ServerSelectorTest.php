@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Devpark\PayboxGateway\Services\ServerSelector;
+use Cahri\PayboxGateway\Services\ServerSelector;
 use DOMDocument;
 use Exception;
 use Illuminate\Config\Repository as Config;
