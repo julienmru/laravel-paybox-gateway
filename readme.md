@@ -3,7 +3,8 @@
 This module makes integration with **[Paybox](http://www1.paybox.com/?lang=en)** payment gateway much easier. It supports currently 2 ways of making payments using Paybox system.
  
  1. **Full payment via Paybox System** - this is the most common way to receive payment - client has to pay for his order and after payment you can process the order
- 2. **Authorization via Paybox System followed by capture via Paybox Direct** - first client makes payment but in fact the real payment is not made, payment is only authorized so far. In maximum period of 7 days you have to confirm you want to/are able to process the order and you capture the payment. After successful payment capture you can process the order.
+ 2. **Subscription payment via Paybox System** - client enters his credit card number on Paybox and is charged regurlarly for his order
+ 3. **Authorization via Paybox System followed by capture via Paybox Direct** - first client makes payment but in fact the real payment is not made, payment is only authorized so far. In maximum period of 7 days you have to confirm you want to/are able to process the order and you capture the payment. After successful payment capture you can process the order.
 
 ### Installation
 
@@ -82,6 +83,21 @@ Also for `setPaymentNumber` you should make sure the number you gave here is uni
 You might want in this step adjust also view for sending request because in some cases it might be seen by a client. However you shouldn't change fields you send to Paybox in this step or it won't work.
 
 In case you use `AuthorizationWithoutCapture` you should make sure, you have `\Cahri\PayboxGateway\ResponseField::PAYBOX_CALL_NUMBER` and `\Cahri\PayboxGateway\ResponseField::TRANSACTION_NUMBER` in your return fields because those values will be needed when capturing payment later.  You should also always have `\Cahri\PayboxGateway\ResponseField::AUTHORIZATION_NUMBER` and `\Cahri\PayboxGateway\ResponseField::SIGNATURE` in your return fields and signature should be always last parameter. 
+
+#### Subscription request
+
+This is request you need to launch to init a recurring payment (eg. for subscriptions). 
+        
+The most basic sample code for subscription request could look like this:
+
+```php
+$subscriptionRequest = \App::make(\Cahri\PayboxGateway\Requests\Subscription::class);
+
+return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->setCustomerEmail('test@example.com')
+            ->setPaymentDay(0)->setPaymentFrequency(1)->setPaymentCount(12)->setPaymentShift(5)->send('paybox.send');
+```            
+
+This code should be run in controller as it's returning view which will by default automatically redirect customer to Paybox website.
 
 #### Define customer returning routes
 
