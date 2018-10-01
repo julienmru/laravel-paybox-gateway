@@ -1,6 +1,6 @@
 <?php
 
-namespace Cahri\PayboxGateway\Requests;
+namespace CariAgency\PayboxGateway\Requests;
 
 class AuthorizationWithCapture extends Authorization
 {

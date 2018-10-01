@@ -1,5 +1,5 @@
 {
-  "name": "cahri/laravel-paybox-gateway",
+  "name": "cariagency/laravel-paybox-gateway",
   "description": "Laravel Paybox gateway",
   "version": "1.1",
   "require": {
@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Cahri\\PayboxGateway\\": "src/"
+      "CariAgency\\PayboxGateway\\": "src/"
     }
   },
   "autoload-dev": {

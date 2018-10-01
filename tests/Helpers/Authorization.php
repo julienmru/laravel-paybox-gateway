@@ -2,10 +2,10 @@
 
 namespace Tests\Helpers;
 
-use Cahri\PayboxGateway\Requests\AuthorizationWithCapture;
-use Cahri\PayboxGateway\Services\Amount;
-use Cahri\PayboxGateway\Services\HmacHashGenerator;
-use Cahri\PayboxGateway\Services\ServerSelector;
+use CariAgency\PayboxGateway\Requests\AuthorizationWithCapture;
+use CariAgency\PayboxGateway\Services\Amount;
+use CariAgency\PayboxGateway\Services\HmacHashGenerator;
+use CariAgency\PayboxGateway\Services\ServerSelector;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\Config\Repository as Config;

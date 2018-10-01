@@ -2,7 +2,7 @@
 
 namespace Tests\Providers;
 
-use Cahri\PayboxGateway\Providers\PayboxServiceProvider;
+use CariAgency\PayboxGateway\Providers\PayboxServiceProvider;
 use Illuminate\Foundation\Application;
 use Tests\UnitTestCase;
 use Mockery as m;

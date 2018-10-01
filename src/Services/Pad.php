@@ -1,6 +1,6 @@
 <?php
 
-namespace Cahri\PayboxGateway\Services;
+namespace CariAgency\PayboxGateway\Services;
 
 class Pad
 {

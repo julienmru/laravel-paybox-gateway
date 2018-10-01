@@ -1,12 +1,12 @@
 <?php
 
-namespace Cahri\PayboxGateway\Requests;
+namespace CariAgency\PayboxGateway\Requests;
 
 use Carbon\Carbon;
-use Cahri\PayboxGateway\HttpClient\GuzzleHttpClient;
-use Cahri\PayboxGateway\Responses\Capture as CaptureResponse;
-use Cahri\PayboxGateway\Services\Amount;
-use Cahri\PayboxGateway\Services\ServerSelector;
+use CariAgency\PayboxGateway\HttpClient\GuzzleHttpClient;
+use CariAgency\PayboxGateway\Responses\Capture as CaptureResponse;
+use CariAgency\PayboxGateway\Services\Amount;
+use CariAgency\PayboxGateway\Services\ServerSelector;
 use Exception;
 use Illuminate\Contracts\Config\Repository as Config;
 

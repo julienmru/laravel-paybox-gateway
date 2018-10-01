@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Cahri\PayboxGateway\Services\Amount;
+use CariAgency\PayboxGateway\Services\Amount;
 use Tests\UnitTestCase;
 
 class AmountTest extends UnitTestCase

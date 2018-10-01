@@ -11,7 +11,7 @@ This module makes integration with **[Paybox](http://www1.paybox.com/?lang=en)**
 1. Run
 
    ```php   
-   composer require cahri/laravel-paybox-gateway
+   composer require cariagency/laravel-paybox-gateway
    ``` 
    
    in console to install this module
@@ -20,7 +20,7 @@ This module makes integration with **[Paybox](http://www1.paybox.com/?lang=en)**
 2. Open `config/app.php` and add
     
    ```php
-   Cahri\PayboxGateway\Providers\PayboxServiceProvider::class,
+   CariAgency\PayboxGateway\Providers\PayboxServiceProvider::class,
    ```
         
    in section `providers`
@@ -28,7 +28,7 @@ This module makes integration with **[Paybox](http://www1.paybox.com/?lang=en)**
 3. Run
 
     ```php
-    php artisan vendor:publish --provider="Cahri\PayboxGateway\Providers\PayboxServiceProvider"
+    php artisan vendor:publish --provider="CariAgency\PayboxGateway\Providers\PayboxServiceProvider"
     ```
     
     in your console to publish default configuration files and sample views
@@ -65,7 +65,7 @@ This is main request you need to launch to init payment.
 The most basic sample code for authorization request could look like this:
 
 ```php
-$authorizationRequest = \App::make(\Cahri\PayboxGateway\Requests\AuthorizationWithCapture::class);
+$authorizationRequest = \App::make(\CariAgency\PayboxGateway\Requests\AuthorizationWithCapture::class);
 
 return $authorizationRequest->setAmount(100)->setCustomerEmail('test@example.com')
             ->setPaymentNumber(1)->send('paybox.send');
@@ -74,15 +74,15 @@ This code should be run in controller as it's returning view which will by defau
 
 In above sample code the full payment is made. If you want to only authorize payment (which you will capture later) you should use `AuthorizationWithoutCapture` class instead of `AuthorizationWithCapture`
 
-If you want more customization take a look at public methods of  `\Cahri\PayboxGateway\Requests\Authorization` class.
+If you want more customization take a look at public methods of  `\CariAgency\PayboxGateway\Requests\Authorization` class.
 
-For `setAmount` default currency is Euro. If you want to use other currency, you should use currency constant from `\Cahri\PayboxGateway\Currency` class as 2nd parameter. Also please notice that amount you should give to this function is real amount (with decimal places) and not converted already to Paybox format.  
+For `setAmount` default currency is Euro. If you want to use other currency, you should use currency constant from `\CariAgency\PayboxGateway\Currency` class as 2nd parameter. Also please notice that amount you should give to this function is real amount (with decimal places) and not converted already to Paybox format.  
 
 Also for `setPaymentNumber` you should make sure the number you gave here is unique for each call. That's why you should probably create payments table for each order and depending on your system, you might need to assume there are more than one payment for your order (for example someone first cancelled it, but later if you gave him such option they decided to make the payment again).
 
 You might want in this step adjust also view for sending request because in some cases it might be seen by a client. However you shouldn't change fields you send to Paybox in this step or it won't work.
 
-In case you use `AuthorizationWithoutCapture` you should make sure, you have `\Cahri\PayboxGateway\ResponseField::PAYBOX_CALL_NUMBER` and `\Cahri\PayboxGateway\ResponseField::TRANSACTION_NUMBER` in your return fields because those values will be needed when capturing payment later.  You should also always have `\Cahri\PayboxGateway\ResponseField::AUTHORIZATION_NUMBER` and `\Cahri\PayboxGateway\ResponseField::SIGNATURE` in your return fields and signature should be always last parameter. 
+In case you use `AuthorizationWithoutCapture` you should make sure, you have `\CariAgency\PayboxGateway\ResponseField::PAYBOX_CALL_NUMBER` and `\CariAgency\PayboxGateway\ResponseField::TRANSACTION_NUMBER` in your return fields because those values will be needed when capturing payment later.  You should also always have `\CariAgency\PayboxGateway\ResponseField::AUTHORIZATION_NUMBER` and `\CariAgency\PayboxGateway\ResponseField::SIGNATURE` in your return fields and signature should be always last parameter. 
 
 #### Subscription request
 
@@ -91,7 +91,7 @@ This is request you need to launch to init a recurring payment (eg. for subscrip
 The most basic sample code for subscription request could look like this:
 
 ```php
-$subscriptionRequest = \App::make(\Cahri\PayboxGateway\Requests\Subscription::class);
+$subscriptionRequest = \App::make(\CariAgency\PayboxGateway\Requests\Subscription::class);
 
 return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->setCustomerEmail('test@example.com')
             ->setPaymentDay(0)->setPaymentFrequency(1)->setPaymentCount(12)->setPaymentShift(5)->send('paybox.send');
@@ -105,11 +105,11 @@ By default 4 sample views were created with sample English texts. You should cre
 
 #### Handling transaction verify route
 
-To make sure the payment was really successful you should use `\Cahri\PayboxGateway\Responses\Verify` class. The simplest code could look like this:
+To make sure the payment was really successful you should use `\CariAgency\PayboxGateway\Responses\Verify` class. The simplest code could look like this:
 
 ```php
 $payment = Payment::where('number', $request->input('order_number'))->firstOrFail();
-$payboxVerify = \App::make(\Cahri\PayboxGateway\Responses\Verify::class);
+$payboxVerify = \App::make(\CariAgency\PayboxGateway\Responses\Verify::class);
 try {
     $success = $payboxVerify->isSuccess($payment->amount);
     if ($success) {
@@ -132,7 +132,7 @@ The simplest code could look like this:
 
 ```php
 $payment = PaymentModel::find($idOfAuthorizedPayment);
-$captureRequest = \App::make(\Cahri\PayboxGateway\Requests\Capture::class);
+$captureRequest = \App::make(\CariAgency\PayboxGateway\Requests\Capture::class);
 $response = $captureRequest->setAmount($payment->amount)
                            ->setPayboxCallNumber($payment->call_number)
                            ->setPayboxTransactionNumber($payment->transaction_number)

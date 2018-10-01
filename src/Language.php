@@ -1,6 +1,6 @@
 <?php
 
-namespace Cahri\PayboxGateway;
+namespace CariAgency\PayboxGateway;
 
 /**
  * Class Language.

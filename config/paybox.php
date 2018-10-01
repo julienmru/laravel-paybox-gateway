@@ -43,15 +43,15 @@ return [
      * you can add also more values from ResponseField class     
      */
     'return_fields' => [
-        'amount' => \Cahri\PayboxGateway\ResponseField::AMOUNT,
-        'authorization_number' => \Cahri\PayboxGateway\ResponseField::AUTHORIZATION_NUMBER,
-        'order_number' => \Cahri\PayboxGateway\ResponseField::ORDER_NUMBER,
-        'response_code' => \Cahri\PayboxGateway\ResponseField::RESPONSE_CODE,
-        'payment_type' => \Cahri\PayboxGateway\ResponseField::PAYMENT_TYPE,
-        'call_number' => \Cahri\PayboxGateway\ResponseField::PAYBOX_CALL_NUMBER,
-        'transaction_number' => \Cahri\PayboxGateway\ResponseField::TRANSACTION_NUMBER,
+        'amount' => \CariAgency\PayboxGateway\ResponseField::AMOUNT,
+        'authorization_number' => \CariAgency\PayboxGateway\ResponseField::AUTHORIZATION_NUMBER,
+        'order_number' => \CariAgency\PayboxGateway\ResponseField::ORDER_NUMBER,
+        'response_code' => \CariAgency\PayboxGateway\ResponseField::RESPONSE_CODE,
+        'payment_type' => \CariAgency\PayboxGateway\ResponseField::PAYMENT_TYPE,
+        'call_number' => \CariAgency\PayboxGateway\ResponseField::PAYBOX_CALL_NUMBER,
+        'transaction_number' => \CariAgency\PayboxGateway\ResponseField::TRANSACTION_NUMBER,
         // signature should be always last return field
-        'signature' => \Cahri\PayboxGateway\ResponseField::SIGNATURE,
+        'signature' => \CariAgency\PayboxGateway\ResponseField::SIGNATURE,
     ],
 
     /*

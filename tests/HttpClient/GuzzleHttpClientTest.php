@@ -2,7 +2,7 @@
 
 namespace Tests\HttpClient;
 
-use Cahri\PayboxGateway\HttpClient\GuzzleHttpClient;
+use CariAgency\PayboxGateway\HttpClient\GuzzleHttpClient;
 use GuzzleHttp\Client;
 use stdClass;
 use Tests\UnitTestCase;
