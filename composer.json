@@ -6,7 +6,9 @@
     "laravel/framework": "5.*",
     "guzzlehttp/guzzle": "^6.2",
     "ext-openssl": "*",
-    "ext-iconv": "*"
+    "ext-iconv": "*",
+    "codeinc/strip-accents": "^1.1",
+    "spatie/array-to-xml": "^2.15"
   },
   "autoload": {
     "psr-4": {

@@ -11,6 +11,8 @@ use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Routing\Router;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Spatie\ArrayToXml\ArrayToXml;
+use CodeInc\StripAccents\StripAccents;
 
 abstract class Authorization extends Request
 {
@@ -27,9 +29,14 @@ abstract class Authorization extends Request
     protected $language = Language::FRENCH;
 
     /**
-     * @var string|null
+     * @var array|null
      */
-    protected $customerEmail = null;
+    protected $customer = [];
+
+    /**
+     * @var array|null
+     */
+    protected $shoppingCart = [];
 
     /**
      * @var array|null
@@ -135,7 +142,7 @@ abstract class Authorization extends Request
             'PBX_LANGUE' => $this->language,
             'PBX_CMD' => $this->paymentNumber,
             'PBX_HASH' => 'SHA512',
-            'PBX_PORTEUR' => $this->customerEmail,
+            'PBX_PORTEUR' => $this->customer['email'],
             'PBX_RETOUR' => $this->getFormattedReturnFields(),
             'PBX_TIME' => $this->getFormattedDate($this->time ?: Carbon::now()),
             'PBX_EFFECTUE' => $this->getCustomerUrl('customerPaymentAcceptedUrl', 'accepted'),
@@ -143,7 +150,63 @@ abstract class Authorization extends Request
             'PBX_ANNULE' => $this->getCustomerUrl('customerPaymentAbortedUrl', 'aborted'),
             'PBX_ATTENTE' => $this->getCustomerUrl('customerPaymentWaitingUrl', 'waiting'),
             'PBX_REPONDRE_A' => $this->getTransactionUrl(),
+            'PBX_PORTEUR' => $this->customer['email'],
+            'PBX_SHOPPING_CART' => str_replace("\n", "", ArrayToXml::convert($this->shoppingCart, 'shoppingcart')),
+            'PBX_BILLING' => str_replace("\n", "", ArrayToXml::convert(['Address' => [
+                'FirstName' => $this->formatTextValue($this->customer['firstname'], 'ANP', 30),
+                'LastName' => $this->formatTextValue($this->customer['lastname'], 'ANP', 30),
+                'Address1' => $this->formatTextValue($this->customer['address'], 'ANS', 50),
+                'ZipCode' => $this->formatTextValue($this->customer['postcode'], 'ANS', 16),
+                'City' => $this->formatTextValue($this->customer['city'], 'ANS', 50),
+                'Country' => intval($this->customer['country']),
+            ]], 'Billing')),
         ];
+    }
+
+    protected function formatTextValue($value, $type, $maxLength = null)
+    {
+        /*
+        AN : Alphanumerical without special characters
+        ANP : Alphanumerical with spaces and special characters
+        ANS : Alphanumerical with special characters
+        N : Numerical only
+        A : Alphabetic only
+        */
+
+        switch ($type) {
+            default:
+            case 'AN':
+                $value = StripAccents::strip($value);
+                break;
+            case 'ANP':
+                $value = StripAccents::strip($value);
+                $value = preg_replace('/[^-. a-zA-Z0-9]/', '', $value);
+                break;
+            case 'ANS':
+                break;
+            case 'N':
+                $value = preg_replace('/[^0-9.]/', '', $value);
+                break;
+            case 'A':
+                $value = StripAccents::strip($value);
+                $value = preg_replace('/[^A-Za-z]/', '', $value);
+                break;
+        }
+        // Remove carriage return characters
+        $value = trim(preg_replace("/\r|\n/", '', $value));
+
+        // Cut the string when needed
+        if (!empty($maxLength) && is_numeric($maxLength) && $maxLength > 0) {
+            if (function_exists('mb_strlen')) {
+                if (mb_strlen($value) > $maxLength) {
+                    $value = mb_substr($value, 0, $maxLength);
+                }
+            } elseif (strlen($value) > $maxLength) {
+                $value = substr($value, 0, $maxLength);
+            }
+        }
+
+        return $value;
     }
 
     /**
@@ -161,6 +224,34 @@ abstract class Authorization extends Request
     }
 
     /**
+     * Set customer data.
+     *
+     * @param array $customer
+     *
+     * @return $this
+     */
+    public function setShoppingCart($shoppingCart)
+    {
+        $this->shoppingCart = $shoppingCart;
+
+        return $this;
+    }
+
+    /**
+     * Set customer data.
+     *
+     * @param array $customer
+     *
+     * @return $this
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
      * Set customer e-mail.
      *
      * @param string $email
@@ -169,7 +260,7 @@ abstract class Authorization extends Request
      */
     public function setCustomerEmail($email)
     {
-        $this->customerEmail = $email;
+        $this->customer['email'] = $email;
 
         return $this;
     }

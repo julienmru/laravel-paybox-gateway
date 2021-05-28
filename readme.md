@@ -67,7 +67,16 @@ The most basic sample code for authorization request could look like this:
 ```php
 $authorizationRequest = \App::make(\CariAgency\PayboxGateway\Requests\AuthorizationWithCapture::class);
 
-return $authorizationRequest->setAmount(100)->setCustomerEmail('test@example.com')
+return $authorizationRequest->setAmount(100)->setCustomer([
+                            'firstname' => 'John',
+                            'lastname' => 'Doe',
+                            'email' => 'john.doe@example.com',
+                            'address' => 'Test Street',
+                            'postcode' => '75015',
+                            'city' => 'PARIS',
+                            'country' => 250 // ISO Numeric Code
+                        ])
+            ->setShoppingCart(['total' => ['totalQuantity' => 10]])
             ->setPaymentNumber(1)->send('paybox.send');
 ```            
 This code should be run in controller as it's returning view which will by default automatically redirect customer to Paybox website.
@@ -93,7 +102,16 @@ The most basic sample code for subscription request could look like this:
 ```php
 $subscriptionRequest = \App::make(\CariAgency\PayboxGateway\Requests\Subscription::class);
 
-return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->setCustomerEmail('test@example.com')
+return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->setCustomer([
+                            'firstname' => 'John',
+                            'lastname' => 'Doe',
+                            'email' => 'john.doe@example.com',
+                            'address' => 'Test Street',
+                            'postcode' => '75015',
+                            'city' => 'PARIS',
+                            'country' => 250 // ISO Numeric Code
+                        ])
+            ->setShoppingCart(['total' => ['totalQuantity' => 10]])
             ->setPaymentDay(0)->setPaymentFrequency(1)->setPaymentCount(12)->setPaymentShift(5)->send('paybox.send');
 ```            
 
