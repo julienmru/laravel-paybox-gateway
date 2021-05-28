@@ -1,12 +1,12 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Responses;
+namespace JulienMru\PayboxGateway\Responses;
 
-use CariAgency\PayboxGateway\ResponseCode;
-use CariAgency\PayboxGateway\ResponseField;
-use CariAgency\PayboxGateway\Responses\Exceptions\InvalidSignature;
-use CariAgency\PayboxGateway\Services\Amount;
-use CariAgency\PayboxGateway\Services\SignatureVerifier;
+use JulienMru\PayboxGateway\ResponseCode;
+use JulienMru\PayboxGateway\ResponseField;
+use JulienMru\PayboxGateway\Responses\Exceptions\InvalidSignature;
+use JulienMru\PayboxGateway\Services\Amount;
+use JulienMru\PayboxGateway\Services\SignatureVerifier;
 use Exception;
 use Illuminate\Http\Request;
 

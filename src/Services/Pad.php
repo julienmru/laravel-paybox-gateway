@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Services;
+namespace JulienMru\PayboxGateway\Services;
 
 class Pad
 {

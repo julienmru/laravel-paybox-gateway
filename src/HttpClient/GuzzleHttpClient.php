@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway\HttpClient;
+namespace JulienMru\PayboxGateway\HttpClient;
 
 use GuzzleHttp\Client;
 

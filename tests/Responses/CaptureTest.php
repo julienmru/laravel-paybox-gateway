@@ -2,8 +2,8 @@
 
 namespace Tests\Responses;
 
-use CariAgency\PayboxGateway\DirectResponseCode;
-use CariAgency\PayboxGateway\Responses\Capture;
+use JulienMru\PayboxGateway\DirectResponseCode;
+use JulienMru\PayboxGateway\Responses\Capture;
 use Tests\UnitTestCase;
 use Mockery as m;
 

@@ -2,7 +2,7 @@
 
 namespace Tests\Requests;
 
-use CariAgency\PayboxGateway\Requests\AuthorizationWithoutCapture;
+use JulienMru\PayboxGateway\Requests\AuthorizationWithoutCapture;
 use Tests\UnitTestCase;
 use Tests\Helpers\Authorization as AuthorizationHelper;
 

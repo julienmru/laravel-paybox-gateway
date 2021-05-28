@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Providers;
+namespace JulienMru\PayboxGateway\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

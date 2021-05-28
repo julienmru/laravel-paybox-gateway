@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Responses\Exceptions;
+namespace JulienMru\PayboxGateway\Responses\Exceptions;
 
 use Exception;
 

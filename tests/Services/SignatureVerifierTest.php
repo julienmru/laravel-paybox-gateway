@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use CariAgency\PayboxGateway\Services\SignatureVerifier;
+use JulienMru\PayboxGateway\Services\SignatureVerifier;
 use Tests\UnitTestCase;
 use Mockery as m;
 use Illuminate\Config\Repository as Config;

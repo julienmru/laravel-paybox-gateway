@@ -3,8 +3,8 @@
 namespace Tests\Requests;
 
 use Carbon\Carbon;
-use CariAgency\PayboxGateway\Currency;
-use CariAgency\PayboxGateway\Language;
+use JulienMru\PayboxGateway\Currency;
+use JulienMru\PayboxGateway\Language;
 use Tests\Helpers\Authorization as AuthorizationHelper;
 use Tests\UnitTestCase;
 

@@ -2,12 +2,12 @@
 
 namespace Tests\Responses;
 
-use CariAgency\PayboxGateway\ResponseCode;
-use CariAgency\PayboxGateway\ResponseField;
-use CariAgency\PayboxGateway\Responses\Exceptions\InvalidSignature;
-use CariAgency\PayboxGateway\Responses\Verify;
-use CariAgency\PayboxGateway\Services\Amount;
-use CariAgency\PayboxGateway\Services\SignatureVerifier;
+use JulienMru\PayboxGateway\ResponseCode;
+use JulienMru\PayboxGateway\ResponseField;
+use JulienMru\PayboxGateway\Responses\Exceptions\InvalidSignature;
+use JulienMru\PayboxGateway\Responses\Verify;
+use JulienMru\PayboxGateway\Services\Amount;
+use JulienMru\PayboxGateway\Services\SignatureVerifier;
 use Illuminate\Http\Request;
 use Tests\UnitTestCase;
 use Mockery as m;

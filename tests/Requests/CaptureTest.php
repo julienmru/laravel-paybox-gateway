@@ -3,12 +3,12 @@
 namespace Tests\Requests;
 
 use Carbon\Carbon;
-use CariAgency\PayboxGateway\Currency;
-use CariAgency\PayboxGateway\HttpClient\GuzzleHttpClient;
-use CariAgency\PayboxGateway\Requests\Capture;
-use CariAgency\PayboxGateway\Responses\Capture as CaptureResponse;
-use CariAgency\PayboxGateway\Services\Amount;
-use CariAgency\PayboxGateway\Services\ServerSelector;
+use JulienMru\PayboxGateway\Currency;
+use JulienMru\PayboxGateway\HttpClient\GuzzleHttpClient;
+use JulienMru\PayboxGateway\Requests\Capture;
+use JulienMru\PayboxGateway\Responses\Capture as CaptureResponse;
+use JulienMru\PayboxGateway\Services\Amount;
+use JulienMru\PayboxGateway\Services\ServerSelector;
 use Exception;
 use Tests\UnitTestCase;
 use Illuminate\Contracts\Config\Repository as Config;

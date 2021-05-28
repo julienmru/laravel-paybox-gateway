@@ -1,12 +1,12 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Requests;
+namespace JulienMru\PayboxGateway\Requests;
 
 use Carbon\Carbon;
-use CariAgency\PayboxGateway\Currency;
-use CariAgency\PayboxGateway\Services\ServerSelector;
+use JulienMru\PayboxGateway\Currency;
+use JulienMru\PayboxGateway\Services\ServerSelector;
 use Illuminate\Contracts\Config\Repository as Config;
-use CariAgency\PayboxGateway\Services\Amount;
+use JulienMru\PayboxGateway\Services\Amount;
 
 abstract class Request
 {

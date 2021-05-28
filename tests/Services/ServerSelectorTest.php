@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use CariAgency\PayboxGateway\Services\ServerSelector;
+use JulienMru\PayboxGateway\Services\ServerSelector;
 use DOMDocument;
 use Exception;
 use Illuminate\Config\Repository as Config;

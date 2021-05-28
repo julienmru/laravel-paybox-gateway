@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use CariAgency\PayboxGateway\Services\HmacHashGenerator;
+use JulienMru\PayboxGateway\Services\HmacHashGenerator;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Contracts\Foundation\Application;
 use Tests\UnitTestCase;

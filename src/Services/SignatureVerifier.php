@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway\Services;
+namespace JulienMru\PayboxGateway\Services;
 
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;

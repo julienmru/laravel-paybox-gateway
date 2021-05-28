@@ -1,6 +1,6 @@
 <?php
 
-namespace CariAgency\PayboxGateway;
+namespace JulienMru\PayboxGateway;
 
 /**
  * Class Currency.
