@@ -151,7 +151,7 @@ abstract class Authorization extends Request
             'PBX_ATTENTE' => $this->getCustomerUrl('customerPaymentWaitingUrl', 'waiting'),
             'PBX_REPONDRE_A' => $this->getTransactionUrl(),
             'PBX_PORTEUR' => $this->customer['email'],
-            'PBX_SHOPPING_CART' => str_replace("\n", "", ArrayToXml::convert($this->shoppingCart, 'shoppingcart')),
+            'PBX_SHOPPINGCART' => str_replace("\n", "", ArrayToXml::convert($this->shoppingCart, 'shoppingcart')),
             'PBX_BILLING' => str_replace("\n", "", ArrayToXml::convert(['Address' => [
                 'FirstName' => $this->formatTextValue($this->customer['firstname'], 'ANP', 30),
                 'LastName' => $this->formatTextValue($this->customer['lastname'], 'ANP', 30),
