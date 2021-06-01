@@ -74,7 +74,7 @@ return $authorizationRequest->setAmount(100)->setCustomer([
                             'address' => 'Test Street',
                             'postcode' => '75015',
                             'city' => 'PARIS',
-                            'country' => 250 // ISO Numeric Code
+                            'countrycode' => 250 // ISO Numeric Code
                         ])
             ->setShoppingCart(['total' => ['totalQuantity' => 10]])
             ->setPaymentNumber(1)->send('paybox.send');
@@ -109,7 +109,7 @@ return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->set
                             'address' => 'Test Street',
                             'postcode' => '75015',
                             'city' => 'PARIS',
-                            'country' => 250 // ISO Numeric Code
+                            'countrycode' => 250 // ISO Numeric Code
                         ])
             ->setShoppingCart(['total' => ['totalQuantity' => 10]])
             ->setPaymentDay(0)->setPaymentFrequency(1)->setPaymentCount(12)->setPaymentShift(5)->send('paybox.send');

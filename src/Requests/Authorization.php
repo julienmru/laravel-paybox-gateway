@@ -158,7 +158,7 @@ abstract class Authorization extends Request
                 'Address1' => $this->formatTextValue($this->customer['address'], 'ANS', 50),
                 'ZipCode' => $this->formatTextValue($this->customer['postcode'], 'ANS', 16),
                 'City' => $this->formatTextValue($this->customer['city'], 'ANS', 50),
-                'Country' => intval($this->customer['country']),
+                'CountryCode' => intval($this->customer['countrycode']),
             ]], 'Billing')),
         ];
     }
@@ -246,7 +246,9 @@ abstract class Authorization extends Request
      */
     public function setCustomer($customer)
     {
-        $this->customer = $customer;
+        foreach($customer as $k => $v) {
+            $this->customer[strtolower($k)] = $v;
+        }
 
         return $this;
     }
