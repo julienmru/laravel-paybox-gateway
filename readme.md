@@ -114,6 +114,32 @@ return $subscriptionRequest->setInitialAmount(100)->setRecurringAmount(100)->set
             ->setShoppingCart(['total' => ['totalQuantity' => 10]])
             ->setPaymentDay(0)->setPaymentFrequency(1)->setPaymentCount(12)->setPaymentShift(5)->send('paybox.send');
 ```            
+#### Payment in several times request
+
+The payment in several times request has been designed for a slightly different use in
+comparison with the subscription program. It allows you to freely configure the dates and amounts of terms of payment, with a maximum of 4 payments, unlike the subscription where the amount and dates are fixed. First payment is always processed instantly.
+        
+The most basic sample code for payment in several times request could look like this:
+
+```php
+$severalTimesRequest = \App::make(\JulienMru\PayboxGateway\Requests\SeveralTimes::class);
+
+return $severalTimesRequest->setCustomer([
+                            'firstname' => 'John',
+                            'lastname' => 'Doe',
+                            'email' => 'john.doe@example.com',
+                            'address' => 'Test Street',
+                            'postcode' => '75015',
+                            'city' => 'PARIS',
+                            'countrycode' => 250 // ISO Numeric Code
+                        ])
+            ->setShoppingCart(['total' => ['totalQuantity' => 10]])
+            ->setPayment1(20)
+            ->setPayment2(Carbon\Carbon::now()->addDays(15), 25)
+            ->setPayment3(Carbon\Carbon::now()->addDays(45), 30)
+            ->setPayment4(Carbon\Carbon::now()->addDays(60), 40)
+            ->send();
+```            
 
 This code should be run in controller as it's returning view which will by default automatically redirect customer to Paybox website.
 
