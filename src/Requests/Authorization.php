@@ -69,6 +69,11 @@ abstract class Authorization extends Request
     protected $transactionVerifyUrl = null;
 
     /**
+     * @var string|null
+     */
+    protected $merchantName = null;
+
+    /**
      * @var HmacHashGenerator
      */
     protected $hmacHashGenerator;
@@ -133,7 +138,7 @@ abstract class Authorization extends Request
      */
     protected function getBasicParameters()
     {
-        return [
+        $parameters = [
             'PBX_SITE' => $this->config->get('paybox.site'),
             'PBX_RANG' => $this->config->get('paybox.rank'),
             'PBX_IDENTIFIANT' => $this->config->get('paybox.id'),
@@ -161,6 +166,10 @@ abstract class Authorization extends Request
                 'CountryCode' => intval($this->customer['countrycode']),
             ]], 'Billing')),
         ];
+        if (!empty($this->merchantName)) {
+            $parameters['PBX_NOM_MARCHAND'] = $this->merchantName;
+        }
+        return $parameters;
     }
 
     protected function formatTextValue($value, $type, $maxLength = null)
@@ -373,6 +382,20 @@ abstract class Authorization extends Request
     public function setTransactionVerifyUrl($url)
     {
         $this->transactionVerifyUrl = $url;
+
+        return $this;
+    }
+
+    /**
+     * Set url for transaction verification.
+     *
+     * @param string $name
+     *
+     * @return $this
+     */
+    public function setMerchantName($name)
+    {
+        $this->merchantName = $name;
 
         return $this;
     }

@@ -190,6 +190,12 @@ if ($response->isSuccess()) {
 
 In above code you should make sure value you give for `setDayRequestNumber` is unique number in current day from 1 to 2147483647. For `setPayboxCallNumber` and `setPayboxTransactionNumber` you should use values you received in handling `Handling transaction verify route` step so you should probably save them in this step to use them here.
 
+#### Customize merchant name
+
+If you want to customize the merchant name on PayBox payment form, you can use the `setMerchantName` function in your payment request.
+
+**Warning:** this does not change the name shown on the bank statement of the customer.
+
 ### Licence
 
 This package is licenced under the [MIT license](http://opensource.org/licenses/MIT)
