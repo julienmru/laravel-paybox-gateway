@@ -84,8 +84,8 @@ return [
          * Paybox System urls
          */
         'paybox' => [
-            'https://tpeweb.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi',
-            'https://tpeweb1.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi',
+            'https://tpeweb.paybox.com/php/',
+            'https://tpeweb1.paybox.com/php/',
         ],
 
         /*
@@ -105,7 +105,7 @@ return [
          * Paybox System urls
          */
         'paybox' => [
-            'https://preprod-tpeweb.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi',
+            'https://preprod-tpeweb.paybox.com/php/',
         ],
 
         /*
