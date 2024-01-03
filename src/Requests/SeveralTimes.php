@@ -57,7 +57,7 @@ class SeveralTimes extends AuthorizationWithCapture
                 $parameters['PBX_DEVISE'] = $this->payments[1]['currencyCode'];
             } else {
                 $parameters['PBX_2MONT' . ($i-1)] = $payment['amount'];
-                $parameters['PBX_DATE' . ($i-1)]  = $payment['date']->format('j/m/Y');
+                $parameters['PBX_DATE' . ($i-1)]  = $payment['date']->format('d/m/Y');
             }
         }
         return $parameters;
