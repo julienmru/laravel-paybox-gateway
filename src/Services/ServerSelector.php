@@ -36,12 +36,17 @@ class ServerSelector
         $urls = $this->getUrls($type);
         $servers = $this->getServers($urls);
 
+
         foreach ($servers as $key => $server) {
-            $doc = $this->getDocumentLoader();
-            $doc->loadHTMLFile('https://' . $server . '/load.html');
-            $element = $doc->getElementById('server_status');
-            if ($element && $element->textContent == 'OK') {
-                return $urls[$key];
+            try {
+                $doc = $this->getDocumentLoader();
+                $doc->loadHTMLFile('https://' . $server . '/load.html');
+                $element = $doc->getElementById('server_status');
+                if ($element && $element->textContent == 'OK') {
+                    return $urls[$key];
+                }
+            } catch (\Exception $e) {
+
             }
         }
 
